@@ -1,8 +1,8 @@
-#What does Shufflemania do?
+# What does Shufflemania do?
 This code manages launching and swapping between several Dolphin windows to recreate the shuffling aspect of the [Shufflemania livestream](https://www.youtube.com/watch?v=E2_SpkLltSc) hosted by [DougDoug](https://www.youtube.com/channel/UClyGlKOhDUooPJFy4v_mqPg). For those unfamiliar, several games are opened at once. Only one is played at a time, and which game is being played at any moment is controlled by the program. The players must adapt quickly to the changing situations to stay successful.
-#How to use
-##Prerequisites
+# How to use
+## Prerequisites
 In order to run the code, you will need to download [Dolphin](https://dolphin-emu.org/) and [Python](https://www.python.org/).
 Once Dolphin is installed, launch it and configure it so windows pause when they are not acitve, and be sure to set up controls for each player. Additionally, you will need to manually create savestates for the shufflemania program to load. These will be the starting points for each window, and in theory you can have as many as your computer can handle running at once.
-##Starting a shuffle session
+## Starting a shuffle session
 Currently to play, you must create a new python file and instantiate the Shufflemania class. Create one ShuffleWindow instance for each window you want to have. Initialize it with the location of your dolphin executable, the location of the ROM, and the location of the corresponding savestate file. Use the `add_window()` method to add each ShuffleWindow to your Shufflemania instance, and then use the `shuffle()` method to launch the session.
