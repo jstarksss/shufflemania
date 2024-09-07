@@ -1,3 +1,4 @@
+"""Run this to begin a shuffle session"""
 import shufflemania as sm
 
 sh = sm.Shufflemania()

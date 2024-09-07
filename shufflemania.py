@@ -1,9 +1,10 @@
+"""Main logic for the Shufflemania program"""
 import signal
 import random
 import subprocess
 import sys
 import time
-import pygetwindow
+import pygetwindow as gw
 
 
 class ShuffleWindow:
@@ -21,7 +22,7 @@ class ShuffleWindow:
         command = str(self.dolphin + ' -b -e "' + self.game + '" -s "' + self.sav + '"')
         subprocess.Popen(command)
         time.sleep(3) #wait in order to make sure the window opens before making it active
-        self.window = pygetwindow.getActiveWindow() #if the window just opened it should be active
+        self.window = gw.getActiveWindow() #if the window just opened it should be active
         print(self.window)
         time.sleep(0)
 
@@ -29,7 +30,7 @@ class ShuffleWindow:
         """Make the shufflewindow the active window"""
         try:
             self.window.activate()
-        except pygetwindow.PyGetWindowException:
+        except gw.PyGetWindowException:
             self.window.minimize()
             self.window.restore()
 
@@ -92,7 +93,7 @@ class Shufflemania:
             #Generate a random index that isn't the same as the current one
             current_index = self.window_index
             while current_index == self.window_index:
-                self.window_index = random.randint(0, len(self.shuffle_windows) - 1)
+                self.window_index = random.randint(0, len(self.shuffle_windows))
         self.shuffle_windows[self.window_index].activate()
 
     def shuffle(self):
